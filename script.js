@@ -24,7 +24,6 @@ const navLinks = document.querySelectorAll("nav ul li a");
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    console.log('Seção:', entry.target.id, 'Visível:', entry.isIntersecting);
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute("id");
       navLinks.forEach(link => {
