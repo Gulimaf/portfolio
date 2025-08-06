@@ -82,3 +82,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         mobileNavBar.init();
     });
+const cards = document.querySelectorAll('.card')
+cards.forEach(card =>{
+    card.addEventListener('mouseenter', (event)=>{
+        const cardhover = event.currentTarget
+        cardhover.querySelectorAll('.icon').forEach(el =>{
+        const color = getComputedStyle(el).color
+        el.style.textShadow = `0 1px 2px ${color}`
+    })
+    })
+    card.addEventListener('mouseleave',(event)=>{
+        const cardhover = event.currentTarget
+        cardhover.querySelectorAll('.icon').forEach(el =>{
+            el.style.textShadow = 'none'
+    })
+})
+})
+
