@@ -1,3 +1,4 @@
+const cards = document.querySelectorAll('.card')
 document.addEventListener('DOMContentLoaded', function() {
         const currentYearSpan = document.getElementById('current-year');
         if (currentYearSpan) {
@@ -36,7 +37,21 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(section => observer.observe(section));
-
+const scrollcard = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('aparecer')
+        }
+        else{
+            entry.target.classList.remove('aparecer')
+        }
+    })
+}, {
+    threshold: 0.3
+})
+cards.forEach(card =>{
+    scrollcard.observe(card)
+})
 class MobileNavBar {
     constructor(barra, navList, navLink) {
         this.barra = document.querySelector(barra);
@@ -82,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         mobileNavBar.init();
     });
-const cards = document.querySelectorAll('.card')
 cards.forEach(card =>{
     card.addEventListener('mouseenter', (event)=>{
         const cardhover = event.currentTarget

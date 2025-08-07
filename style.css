@@ -10,6 +10,10 @@ p{
 body {
   background-color: black;
   overflow-x: hidden;
+  cursor: url("./img/cursor-final.png") 4 4, auto !important;
+}
+a{
+  cursor: url("./img/cursor-final.png") 4 4, auto !important;
 }
 .container-nome{
   text-align: center;
@@ -272,9 +276,12 @@ nav a.ativo::after{
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       isolation: isolate;
       overflow: hidden;
-      transition: transform .5s ease-in-out;
+      transition: transform .5s ease-in-out, opacity .3s ease;
       perspective: 10000px;
-
+      transform: scale(0) translateY(+100px);
+  }
+  .aparecer{
+    transform: scale(1) translateY(0);
   }
   .card::before,
   .card::after{
@@ -387,8 +394,8 @@ html{
 }
 .projeto img{
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 .projeto{
@@ -402,7 +409,6 @@ html{
   text-align: center;
   padding: 10px 40px;
   max-width: 350px;
-
 }
 .projeto h1{
   margin-bottom: 10px;
@@ -481,11 +487,14 @@ html{
   gap: 20px;
 }
 .sobre-sobre-mim{
-  
   border-radius: 10px;
   padding: 20px 25px;
   background-color:#0e0e0e;
   box-shadow: 0 0 10px rgb(14, 59, 77);
+  transition: box-shadow .3s ease-in-out;
+}
+.sobre-sobre-mim:hover{
+  box-shadow: 0 0 10px rgba(108, 21, 148, 0.829);
 }
 .links{
   width: 90%;
